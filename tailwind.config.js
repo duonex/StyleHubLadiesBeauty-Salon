@@ -1,0 +1,123 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        ivory: {
+          50: '#FDFCF9',
+          100: '#FAF7F2',
+          200: '#F5EFE6',
+          300: '#EFE7D8',
+          400: '#E4D7C2',
+          500: '#D5C4A8',
+        },
+        botanical: {
+          950: '#07130B',
+          900: '#0E2316',
+          800: '#163321',
+          700: '#1C3F2B',
+          600: '#234E35',
+          500: '#2A5C3F',
+          400: '#3A7753',
+          300: '#53966F',
+        },
+        gold: {
+          DEFAULT: '#C5A059',
+          light: '#E5C378',
+          dark: '#9E7D3B',
+          50: '#FBF8EF',
+          100: '#F7F0DF',
+          200: '#EEDDBF',
+          300: '#E5C378',
+          400: '#D5B268',
+          500: '#C5A059',
+          600: '#A9843F',
+          700: '#8C6B2D',
+          800: '#6E521E',
+          900: '#4D3812',
+        },
+        floral: {
+          jasmine: '#FCFBF7',
+          'jasmine-calyx': '#2E6930',
+          rose: '#88131A',
+          'rose-rich': '#991B24',
+          'rose-light': '#D64555',
+          'rose-velvet': '#6B0D15',
+          marigold: '#E67E22',
+          'marigold-deep': '#D35400',
+          'marigold-saffron': '#F39C12',
+          lotus: '#D85C7D',
+          'lotus-light': '#F2A2B7',
+          'lotus-deep': '#B8325B',
+          orchid: '#7E3F8F',
+          'orchid-light': '#9B5DE5',
+          tuberose: '#F4F7F2',
+          champaca: '#E5A93B',
+        },
+        charcoal: {
+          DEFAULT: '#1B1C1A',
+          50: '#8E918C',
+          100: '#666964',
+          200: '#4E504C',
+          300: '#3B3D39',
+          400: '#2B2D29',
+          500: '#1B1C1A',
+          600: '#151614',
+          700: '#0F100E',
+        },
+        salon: {
+          blush: '#FDF2F4',
+          'blush-soft': '#FAF0F2',
+          rose: '#D97A8F',
+          'rose-dark': '#B84E67',
+          'rose-gold': '#B76E79',
+          gold: '#C5A059',
+          'gold-light': '#DFC085',
+          'gold-dark': '#9B783E',
+          cream: '#FAF7F2',
+          sand: '#F2EBE1',
+          obsidian: '#121316',
+          dark: '#1A1B20',
+          muted: '#71717A',
+        }
+      },
+      fontFamily: {
+        serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+        heading: ['"Cinzel"', '"Cormorant Garamond"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        'luxury': '0 20px 40px -15px rgba(14, 35, 22, 0.08)',
+        'luxury-hover': '0 25px 50px -12px rgba(14, 35, 22, 0.16)',
+        'luxury-card': '0 10px 30px -10px rgba(14, 35, 22, 0.06), 0 0 0 1px rgba(197, 160, 89, 0.15)',
+        'gold-glow': '0 0 25px rgba(197, 160, 89, 0.3)',
+        'gold-glow-lg': '0 0 45px rgba(197, 160, 89, 0.45)',
+        'emerald-glow': '0 0 30px rgba(35, 78, 53, 0.4)',
+      },
+      animation: {
+        'float-slow': 'float 8s ease-in-out infinite',
+        'sway': 'sway 6s ease-in-out infinite alternate',
+        'shimmer': 'shimmer 3s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(1.5deg)' },
+        },
+        sway: {
+          '0%': { transform: 'rotate(-2deg)' },
+          '100%': { transform: 'rotate(2deg)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        }
+      }
+    },
+  },
+  plugins: [],
+}

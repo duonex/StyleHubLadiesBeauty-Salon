@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ivory: #FAF7F2;
+    --color-botanical: #0E2316;
+    --color-gold: #C5A059;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #FAF7F2;
+    color: #1B1C1A;
+    overflow-x: hidden;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF7F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C5A059;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9E7D3B;
+  }
+
+  /* Thin Luxury Scrollbar for Internal Panels (Firefox + WebKit) */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(197, 160, 89, 0.45) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(197, 160, 89, 0.4);
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(197, 160, 89, 0.85);
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FBF8EF 0%, #E5C378 25%, #C5A059 60%, #9E7D3B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-botanical-gradient {
+    background: linear-gradient(135deg, #07130B 0%, #0E2316 40%, #1C3F2B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #E5C378 0%, #C5A059 50%, #9E7D3B 100%);
+  }
+
+  .bg-gold-gradient-subtle {
+    background: linear-gradient(135deg, rgba(229, 195, 120, 0.15) 0%, rgba(197, 160, 89, 0.08) 50%, rgba(158, 125, 59, 0.15) 100%);
+  }
+
+  .bg-glass {
+    background: rgba(253, 251, 247, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .bg-glass-dark {
+    background: rgba(14, 35, 22, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .gold-border {
+    border: 1px solid rgba(197, 160, 89, 0.25);
+  }
+
+  .gold-border-glow:hover {
+    border-color: rgba(197, 160, 89, 0.8);
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.3);
+  }
+
+  .gold-shimmer-border {
+    position: relative;
+  }
+  .gold-shimmer-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(90deg, rgba(197,160,89,0.2), rgba(229,195,120,0.8), rgba(197,160,89,0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+  }
+}
+
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 25s linear infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 3s ease-in-out infinite;
+}
+
+@keyframes goldSheen {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.animate-gold-sheen {
+  animation: goldSheen 4s ease-in-out infinite;
+}
+
+@keyframes goldGlowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+.animate-gold-glow {
+  animation: goldGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes shLogoScaleEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+    filter: drop-shadow(0 0 0px rgba(197, 160, 89, 0));
+  }
+  65% {
+    opacity: 0.96;
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 28px rgba(223, 192, 133, 0.7));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 18px rgba(197, 160, 89, 0.45));
+  }
+}
+
+@keyframes shLogoSizeBreath {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 16px rgba(197, 160, 89, 0.4)) drop-shadow(0 0 32px rgba(197, 160, 89, 0.15));
+  }
+  50% {
+    transform: scale(1.09);
+    filter: drop-shadow(0 0 30px rgba(223, 192, 133, 0.8)) drop-shadow(0 0 60px rgba(197, 160, 89, 0.35));
+  }
+}
+
+@keyframes goldDust {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-80px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.animate-gold-dust {
+  animation: goldDust 7s linear infinite;
+}
+
+@keyframes kenBurnsZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurnsZoom 18s ease-out alternate infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Continuous Smooth Running Marquee Carousel Animation */
+@keyframes bridalContinuousMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-bridal-continuous {
+  animation: bridalContinuousMarquee 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-bridal-continuous:hover {
+  animation-play-state: paused;
+}
+
+/* Modern content-visibility optimization for heavy lists/sections */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+/* Smooth hardware acceleration helpers */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
